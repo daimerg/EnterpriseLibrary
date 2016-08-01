@@ -14,7 +14,6 @@ namespace ReDES.Services.Common.Exceptions
         /// </summary>
         /// <param name="ex">Descripción de la excepción</param>
         /// <param name="policy">Política de excepciones</param>
-        /// <remarks>Hennry García. 03/19/2012</remarks>
         public static void HandleException(string ex, string policy)
         {
             HandleException(new System.Exception(ex), policy);
@@ -26,7 +25,6 @@ namespace ReDES.Services.Common.Exceptions
         /// </summary>
         /// <param name="ex">Excepción a manejar</param>
         /// <param name="policy">Política de excepciones</param>
-        /// <remarks>Hennry García. 03/19/2012</remarks>
         public static void HandleException(System.Exception ex, string policy)
         {
             Exception exceptionToThrow = null;
