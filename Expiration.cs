@@ -9,7 +9,6 @@ namespace ReDES.Services.Common.Cache
     /// <summary>
     /// Realiza acciones sobre los items expirados del cache
     /// </summary>
-    /// <remarks>Hennry García B. 26/01/2012</remarks>
     [Serializable]
     class Expiration : ICacheItemRefreshAction
     {
