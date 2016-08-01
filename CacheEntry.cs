@@ -7,7 +7,6 @@ namespace ReDES.Services.Common.Cache
     /// <summary>
     /// Clase que se encarga del manejo del Cache
     /// </summary>
-    /// <remarks>Hennry García B. 26/01/2012</remarks>
     [Serializable]
     public class CacheEntry : ICacheManager
     {
@@ -23,13 +22,11 @@ namespace ReDES.Services.Common.Cache
         /// <summary>
         /// Objeto para manipular el cache dado en el constructor.
         /// </summary>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         private ICacheManager _manager;
 
         /// <summary>
         /// Obtiene la cantidad de elementos que se encuentran en el cache.
         /// </summary>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public int Count
         {
             get
@@ -43,7 +40,6 @@ namespace ReDES.Services.Common.Cache
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public object this[string key]
         {
             get { return _manager.GetData(key); }
@@ -57,7 +53,6 @@ namespace ReDES.Services.Common.Cache
         /// Crea la clase y asigna el agente al que pertenece el cache.
         /// </summary>
         /// <param name="cacheName">Nombre del cache que se utiliza.</param>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public CacheEntry(string cacheName)
         {
             try
@@ -75,7 +70,6 @@ namespace ReDES.Services.Common.Cache
         /// Constructor de la clase Cache
         /// Crea la clase y asigna el agente al que pertenece el cache.
         /// </summary>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public CacheEntry()
         {
             try
@@ -99,7 +93,6 @@ namespace ReDES.Services.Common.Cache
         /// <param name="scavengingPriority">Prioridad</param>
         /// <param name="refreshAction">Acción</param>
         /// <param name="expirations">Expiración del elemento en el cache</param>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public void Add(string key, object value, CacheItemPriority scavengingPriority, ICacheItemRefreshAction refreshAction, params ICacheItemExpiration[] expirations)
         {
             _manager.Add(key, value, scavengingPriority, refreshAction, expirations);
@@ -112,7 +105,6 @@ namespace ReDES.Services.Common.Cache
         /// <param name="context">unidad de trabajo que se almacenara</param>
         /// <param name="scavengingPriority">Itempriority</param>
         /// <returns>Verdadero en caso que se haya realizado la acción, Falso en caso contrario</returns>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public bool Add(string key, object context, CacheItemPriority scavengingPriority)
         {
             try
@@ -132,7 +124,6 @@ namespace ReDES.Services.Common.Cache
         /// </summary>
         /// <param name="key">Identificador del cache</param>
         /// <param name="value">Valor a adicionar en el cache</param>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public void Add(string key, object value)
         {
             _manager.Add(key, value, CacheItemPriority.High, null, new NeverExpired());
@@ -143,7 +134,6 @@ namespace ReDES.Services.Common.Cache
         /// </summary>
         /// <param name="key">Identificador del elemento</param>
         /// <returns>Verdadero en caso que se encuentre el elemento, falso en caso contrario</returns>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public bool Contains(string key)
         {
             return _manager.Contains(key);
@@ -152,7 +142,6 @@ namespace ReDES.Services.Common.Cache
         /// <summary>
         /// Método que se encarga de limpiar el cache
         /// </summary>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public void Flush()
         {
             _manager.Flush();
@@ -163,7 +152,6 @@ namespace ReDES.Services.Common.Cache
         /// </summary>
         /// <param name="key">Llave del elemento</param>
         /// <returns>Elemento encontrado</returns>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public object GetData(string key)
         {
             return _manager.GetData(key);
@@ -173,7 +161,6 @@ namespace ReDES.Services.Common.Cache
         /// Método que se encarga de eliminar un elemento del cache
         /// </summary>
         /// <param name="key">Identificador del elemento</param>
-        /// <remarks>Hennry García B. 26/01/2012</remarks>
         public void Remove(string key)
         {
             _manager.Remove(key);
